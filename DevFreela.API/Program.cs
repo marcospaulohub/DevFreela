@@ -1,5 +1,6 @@
 
 using DevFreela.API.Models;
+using DevFreela.API.Services;
 
 namespace DevFreela.API
 {
@@ -14,6 +15,15 @@ namespace DevFreela.API
             builder.Services.Configure<FreelanceTotalCostConfig>(
                 builder.Configuration.GetSection("FreelanceTotalCostConfig")
             );
+
+            // Singleton
+            //builder.Services.AddSingleton<IConfigService, ConfigService>();
+
+            // Scoped
+            //builder.Services.AddScoped<IConfigService, ConfigService>();
+
+            // Transient
+            //builder.Services.AddTransient<IConfigService, ConfigService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
