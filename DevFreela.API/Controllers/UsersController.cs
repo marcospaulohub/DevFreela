@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers
 {
@@ -12,6 +11,17 @@ namespace DevFreela.API.Controllers
         public IActionResult Post()
         {
             return Ok();
+        }
+
+        [HttpPut("{id}/profile-picture")]
+        public IActionResult PostProfilePicture(IFormFile file)
+        {
+            var description = $"File: {file.FileName}, Size: {file.Length}";
+
+            //Processar a imagem.
+            // Salvar no banco de dados ou salvar local ou salvar no S3 AWS, etc.
+
+            return Ok(description);
         }
     }
 }
