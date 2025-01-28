@@ -1,4 +1,5 @@
 
+using DevFreela.API.ExceptionHandler;
 using DevFreela.API.Models;
 using DevFreela.API.Services;
 
@@ -19,11 +20,15 @@ namespace DevFreela.API
             // Singleton
             //builder.Services.AddSingleton<IConfigService, ConfigService>();
 
+            // Transient
+            //builder.Services.AddTransient<IConfigService, ConfigService>();
+
             // Scoped
             //builder.Services.AddScoped<IConfigService, ConfigService>();
 
-            // Transient
-            //builder.Services.AddTransient<IConfigService, ConfigService>();
+            builder.Services.AddExceptionHandler<ApiExceptionHandler>();
+            builder.Services.AddProblemDetails();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -38,6 +43,8 @@ namespace DevFreela.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseExceptionHandler();
 
             app.UseHttpsRedirection();
 
