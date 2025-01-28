@@ -1,4 +1,6 @@
 
+using DevFreela.API.Models;
+
 namespace DevFreela.API
 {
     public class Program
@@ -8,6 +10,10 @@ namespace DevFreela.API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.Configure<FreelanceTotalCostConfig>(
+                builder.Configuration.GetSection("FreelanceTotalCostConfig")
+            );
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
