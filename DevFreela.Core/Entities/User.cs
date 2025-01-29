@@ -1,9 +1,11 @@
-﻿namespace DevFreela.API.Entities
+﻿using DevFreela.Core.Entities;
+
+namespace DevFreela.Core.Entities
 {
     public class User : BaseEntity
     {
         public User(string fullName, string email, DateTime birthDate)
-            :base()
+            : base()
         {
             FullName = fullName;
             Email = email;

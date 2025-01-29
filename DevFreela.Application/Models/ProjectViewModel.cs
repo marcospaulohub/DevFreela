@@ -1,6 +1,6 @@
-﻿using DevFreela.API.Entities;
+﻿using DevFreela.Core.Entities;
 
-namespace DevFreela.API.Models
+namespace DevFreela.Application.Models
 {
     public class ProjectViewModel
     {
@@ -38,6 +38,6 @@ namespace DevFreela.API.Models
                 entity.Client.FullName,
                 entity.Freelancer.FullName,
                 entity.TotalCost,
-                entity.Comments); 
+                entity.Comments);
     }
 }
