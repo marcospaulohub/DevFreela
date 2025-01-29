@@ -23,7 +23,10 @@
         public T Data { get; private set; }
 
         public static ResultViewModel<T> Success(T data)
-            => new ResultViewModel<T>(data);
+            => new(data);
+
+        public static ResultViewModel<T> Error(string message)
+            => new(default, false, message);
     }
 
 }
