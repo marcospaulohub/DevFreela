@@ -1,7 +1,9 @@
 
 using DevFreela.API.ExceptionHandler;
 using DevFreela.API.Models;
+using DevFreela.API.Persistence;
 using DevFreela.API.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevFreela.API
 {
@@ -19,12 +21,15 @@ namespace DevFreela.API
 
             // Singleton
             //builder.Services.AddSingleton<IConfigService, ConfigService>();
-
             // Transient
             //builder.Services.AddTransient<IConfigService, ConfigService>();
-
             // Scoped
             //builder.Services.AddScoped<IConfigService, ConfigService>();
+
+            builder.Services.AddScoped<IConfigService, ConfigService>();
+
+            builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseInMemoryDatabase("DevFreelaDb"));
+
 
             builder.Services.AddExceptionHandler<ApiExceptionHandler>();
             builder.Services.AddProblemDetails();
