@@ -28,8 +28,12 @@ namespace DevFreela.API
 
             builder.Services.AddScoped<IConfigService, ConfigService>();
 
-            builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseInMemoryDatabase("DevFreelaDb"));
+            // BANCO EM MEMORIA
+            //builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseInMemoryDatabase("DevFreelaDb"));
 
+            var cconnectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
+
+            builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseSqlServer(cconnectionString));
 
             builder.Services.AddExceptionHandler<ApiExceptionHandler>();
             builder.Services.AddProblemDetails();

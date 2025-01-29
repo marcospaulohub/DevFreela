@@ -39,6 +39,9 @@ namespace DevFreela.API.Controllers
                 .Include(c => c.Comments)
                 .SingleOrDefault(p => p.Id == id);
 
+            if (project is null)
+                return NotFound();
+
             var model = ProjectViewModel.FromEntity(project);
 
             return Ok(model);
