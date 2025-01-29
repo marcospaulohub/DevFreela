@@ -16,6 +16,11 @@ namespace DevFreela.Infrastructure.Persistence.Mappings
                    .WithMany(pc => pc.Comments)
                    .HasForeignKey(pc => pc.IdProject)
                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(pc => pc.User)
+                   .WithMany(pc => pc.Comments)
+                   .HasForeignKey(pc => pc.IdUser)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
