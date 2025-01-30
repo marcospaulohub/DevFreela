@@ -2,7 +2,7 @@
 using DevFreela.Core.Repositories;
 using MediatR;
 
-namespace DevFreela.Application.Commands.CompleteProject
+namespace DevFreela.Application.Commands.Projects.CompleteProject
 {
     internal class CompleteProjectHandler : IRequestHandler<CompleteProjectCommand, ResultViewModel>
     {

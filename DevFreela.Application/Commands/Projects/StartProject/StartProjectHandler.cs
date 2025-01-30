@@ -2,25 +2,25 @@
 using DevFreela.Core.Repositories;
 using MediatR;
 
-namespace DevFreela.Application.Commands.DeleteProject
+namespace DevFreela.Application.Commands.Projects.StartProject
 {
-    public class DeleteProjectHandler : IRequestHandler<DeleteProjectCommand, ResultViewModel>
+    public class StartProjectHandler : IRequestHandler<StartProjectCommand, ResultViewModel>
     {
         private readonly IProjectRepository _repository;
 
-        public DeleteProjectHandler(IProjectRepository repository)
+        public StartProjectHandler(IProjectRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<ResultViewModel> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
+        public async Task<ResultViewModel> Handle(StartProjectCommand request, CancellationToken cancellationToken)
         {
             var project = await _repository.GetById(request.Id);
 
             if (project is null)
                 return ResultViewModel.Error("Projeto não existe.");
 
-            project.SetAsDeleted();
+            project.Start();
 
             await _repository.Update(project);
 
