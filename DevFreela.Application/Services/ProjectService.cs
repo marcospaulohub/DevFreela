@@ -1,10 +1,8 @@
-﻿using Azure;
-using DevFreela.Application.Models;
+﻿using DevFreela.Application.Models;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Core.Entities;
 using DevFreela.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System.Drawing;
 
 namespace DevFreela.Application.Services
 {
