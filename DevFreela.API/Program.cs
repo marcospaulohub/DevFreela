@@ -1,8 +1,7 @@
 
 using DevFreela.API.ExceptionHandler;
 using DevFreela.Application;
-using DevFreela.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+using DevFreela.Infrastructure;
 
 namespace DevFreela.API
 {
@@ -14,11 +13,9 @@ namespace DevFreela.API
 
             // Add services to the container.
 
-            var cconnectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
-            builder.Services.AddDbContext<DevFreelaDbContext>(o => o.UseSqlServer(cconnectionString));
-
             builder.Services
-                .AddApplication();
+                .AddApplication()
+                .AddInfrastructure(builder.Configuration);
 
             builder.Services.AddExceptionHandler<ApiExceptionHandler>();
             builder.Services.AddProblemDetails();
