@@ -1,12 +1,11 @@
-﻿using DevFreela.Application.Commands.CompleteProject;
-using DevFreela.Application.Commands.DeleteProject;
-using DevFreela.Application.Commands.InsertComment;
-using DevFreela.Application.Commands.InsertProject;
-using DevFreela.Application.Commands.StartProject;
-using DevFreela.Application.Commands.UpdateProject;
-using DevFreela.Application.Queries.GetAllProjects;
-using DevFreela.Application.Queries.GetProjectById;
-using DevFreela.Application.Services.Interfaces;
+﻿using DevFreela.Application.Commands.Projects.CompleteProject;
+using DevFreela.Application.Commands.Projects.DeleteProject;
+using DevFreela.Application.Commands.Projects.InsertComment;
+using DevFreela.Application.Commands.Projects.InsertProject;
+using DevFreela.Application.Commands.Projects.StartProject;
+using DevFreela.Application.Commands.Projects.UpdateProject;
+using DevFreela.Application.Queries.Projects.GetAllProjects;
+using DevFreela.Application.Queries.Projects.GetProjectById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,12 +15,10 @@ namespace DevFreela.API.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private readonly IProjectService _service;
         private readonly IMediator _mediator;
 
-        public ProjectsController(IProjectService service, IMediator mediator)
+        public ProjectsController(IMediator mediator)
         {
-            _service = service;
             _mediator = mediator;
         }
         // GET api/projects?search=crm
