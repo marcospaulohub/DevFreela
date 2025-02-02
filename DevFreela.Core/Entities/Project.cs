@@ -1,5 +1,6 @@
 ﻿using DevFreela.Core.Entities;
 using DevFreela.Core.Enums;
+using DevFreela.Core.Messages.ProjectMessages;
 
 namespace DevFreela.Core.Entities
 {
@@ -27,8 +28,8 @@ namespace DevFreela.Core.Entities
         public int IdFreelancer { get; private set; }
         public User Freelancer { get; private set; }
         public decimal TotalCost { get; private set; }
-        public DateTime StartedAt { get; private set; }
-        public DateTime CompletedAt { get; private set; }
+        public DateTime? StartedAt { get; private set; }
+        public DateTime? CompletedAt { get; private set; }
         public ProjectStatusEnum Status { get; private set; }
         public List<ProjectComment> Comments { get; private set; }
 
@@ -46,6 +47,9 @@ namespace DevFreela.Core.Entities
             {
                 Status = ProjectStatusEnum.InProgress;
                 StartedAt = DateTime.Now;
+            }else
+            {
+                throw new InvalidOperationException(ProjectMsgs.GetText("ProjectInvalidState"));
             }
         }
 

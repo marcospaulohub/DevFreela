@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Commands.Projects.InsertProject;
+using DevFreela.Core.Messages.ProjectMessages;
 using FluentValidation;
 
 namespace DevFreela.Application.Validators.ProjectValidator
@@ -9,27 +10,27 @@ namespace DevFreela.Application.Validators.ProjectValidator
         {
             RuleFor(p => p.Title)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.")
+                    .WithMessage(ProjectMsgs.GetTitleNotEmpty())
                 .MaximumLength(100)
-                    .WithMessage("Tamanho máximo é 100 caracteres.");
+                    .WithMessage(ProjectMsgs.GetTitleMaxLength());
 
             RuleFor(p => p.Description)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.");
+                    .WithMessage(ProjectMsgs.GetDescriptionNotEmpty());
 
             RuleFor(p => p.IdClient)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.");
+                    .WithMessage(ProjectMsgs.GetText("IdClientNotEmpty"));
 
             RuleFor(p => p.IdFreelancer)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.");
+                    .WithMessage(ProjectMsgs.GetText("IdFreelancerNotEmpty"));
 
             RuleFor(p => p.TotalCost)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.")
+                    .WithMessage(ProjectMsgs.GetText("TotalCostNotEmpty"))
                 .GreaterThanOrEqualTo(1000)
-                    .WithMessage("O projeto deve custar pelo menos R$1.000");
+                    .WithMessage(ProjectMsgs.GetText("TotalCostMinLength"));
         }
     }
 }
