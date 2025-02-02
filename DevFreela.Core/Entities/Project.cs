@@ -1,5 +1,4 @@
-﻿using DevFreela.Core.Entities;
-using DevFreela.Core.Enums;
+﻿using DevFreela.Core.Enums;
 using DevFreela.Core.Messages.ProjectMessages;
 
 namespace DevFreela.Core.Entities
@@ -33,24 +32,25 @@ namespace DevFreela.Core.Entities
         public ProjectStatusEnum Status { get; private set; }
         public List<ProjectComment> Comments { get; private set; }
 
-        public void Cancel()
-        {
-            if (Status == ProjectStatusEnum.InProgress || Status == ProjectStatusEnum.Suspended)
-            {
-                Status = ProjectStatusEnum.Cancelled;
-            }
-        }
-
         public void Start()
         {
             if (Status == ProjectStatusEnum.Created)
             {
                 Status = ProjectStatusEnum.InProgress;
                 StartedAt = DateTime.Now;
-            }else
-            {
-                throw new InvalidOperationException(ProjectMsgs.GetText("ProjectInvalidState"));
             }
+            else
+                throw new InvalidOperationException(ProjectMsgs.GetProjectInvalidState());
+        }
+
+        public void Cancel()
+        {
+            if (Status == ProjectStatusEnum.InProgress || Status == ProjectStatusEnum.Suspended)
+            {
+                Status = ProjectStatusEnum.Cancelled;
+            }
+            else
+                throw new InvalidOperationException(ProjectMsgs.GetProjectInvalidState());
         }
 
         public void Complete()
@@ -60,6 +60,8 @@ namespace DevFreela.Core.Entities
                 Status = ProjectStatusEnum.Completed;
                 CompletedAt = DateTime.Now;
             }
+            else
+                throw new InvalidOperationException(ProjectMsgs.GetProjectInvalidState());
         }
 
         public void SetPaymentPending()
