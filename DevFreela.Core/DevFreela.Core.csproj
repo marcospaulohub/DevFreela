@@ -12,12 +12,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ProjectMsgsResource.resx</DependentUpon>
     </Compile>
+    <Compile Update="Messages\SkillMessages\SkillMsgsResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SkillMsgsResource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages\UserMessages\UserMsgsResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserMsgsResource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Messages\ProjectMessages\ProjectMsgsResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ProjectMsgsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\SkillMessages\SkillMsgsResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SkillMsgsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\UserMessages\UserMsgsResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMsgsResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

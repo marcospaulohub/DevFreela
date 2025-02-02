@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Models;
+using DevFreela.Core.Messages.UserMessages;
 using FluentValidation;
 
 namespace DevFreela.Application.Validators.UserValidator
@@ -9,23 +10,23 @@ namespace DevFreela.Application.Validators.UserValidator
         {
             RuleFor(u => u.FullName)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.")
+                    .WithMessage(UserMsgs.GetFullnameNotEmpty())
                 .MaximumLength(200)
-                    .WithMessage("Tamanho máximo é 200 caracteres.");
+                    .WithMessage(UserMsgs.GetFullnameMaxLength());
 
             RuleFor(u => u.Email)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.")
+                    .WithMessage(UserMsgs.GetEmailNotEmpty())
                 .MaximumLength(200)
-                    .WithMessage("Tamanho máximo é 200 caracteres.")
+                    .WithMessage(UserMsgs.GetEmailMaxLength())
                 .EmailAddress()
-                    .WithMessage("E-mail inválido.");
+                    .WithMessage(UserMsgs.GetEmailInvalid());
 
             RuleFor(u => u.BirthDate)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.")
+                    .WithMessage(UserMsgs.GetBirthDateNotEmpty())
                 .Must(d => d < DateTime.Now.AddYears(-18))
-                    .WithMessage("Deve ser maior de idade.");
+                    .WithMessage(UserMsgs.GetBirtDateMinAge());
         }
     }
 }

@@ -117,31 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ProjectInvalidState" xml:space="preserve">
-    <value>Projeto está em estado inválido.</value>
+  <data name="SkillDescriptionNotEmpty" xml:space="preserve">
+    <value>Descrição da Skill não pode ser vazio.</value>
   </data>
-  <data name="ProjectTitleNotEmpty" xml:space="preserve">
-    <value>Titulo não pode ser vazio.</value>
-  </data>
-  <data name="ProjectDescriptionNotEmpty" xml:space="preserve">
-    <value>Descrição do Projeto não pode ser vazio.</value>
-  </data>
-  <data name="ProjectIdClientNotEmpty" xml:space="preserve">
-    <value>Id do cliente não pode ser vazio.</value>
-  </data>
-  <data name="ProjectIdFreelancerNotEmpty" xml:space="preserve">
-    <value>Id do freelancer não pode ser vazio.</value>
-  </data>
-  <data name="ProjectTotalCostNotEmpty" xml:space="preserve">
-    <value>Valor do projeto não pode ser vazio.</value>
-  </data>
-  <data name="ProjectTotalCostMinLength" xml:space="preserve">
-    <value>Projeto deve custar pelo menos R$1.000.</value>
-  </data>
-  <data name="ProjectTitleMaxLength" xml:space="preserve">
-    <value>Titulo deve ter no máximo 100 caracteres.</value>
-  </data>
-  <data name="ProjectNotExist" xml:space="preserve">
-    <value>Projeto não existe.</value>
+  <data name="SkillDescriptionMaxLength" xml:space="preserve">
+    <value>Descrição deve ter no máximo 80 caracteres.</value>
   </data>
 </root>

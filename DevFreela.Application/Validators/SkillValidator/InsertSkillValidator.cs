@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Commands.Skills.InsertSkill;
+using DevFreela.Core.Messages.SkillMessages;
 using FluentValidation;
 
 namespace DevFreela.Application.Validators.SkillValidator
@@ -9,9 +10,9 @@ namespace DevFreela.Application.Validators.SkillValidator
         {
             RuleFor(s => s.Description)
                 .NotEmpty()
-                    .WithMessage("Não pode ser vazio.")
+                    .WithMessage(SkillMsgs.GetDescriptionNotEmpty())
                 .MaximumLength(80)
-                    .WithMessage("Tamanho máximo é 80 caracteres.");
+                    .WithMessage(SkillMsgs.GetDescriptionMaxLength());
         }
     }
 }

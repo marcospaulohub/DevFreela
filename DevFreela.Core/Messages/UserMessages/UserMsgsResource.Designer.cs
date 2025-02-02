@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DevFreela.Core.Messages.ProjectMessages {
+namespace DevFreela.Core.Messages.UserMessages {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace DevFreela.Core.Messages.ProjectMessages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ProjectMsgsResource {
+    internal class UserMsgsResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ProjectMsgsResource() {
+        internal UserMsgsResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DevFreela.Core.Messages.ProjectMessages {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DevFreela.Core.Messages.ProjectMessages.ProjectMsgsResource", typeof(ProjectMsgsResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DevFreela.Core.Messages.UserMessages.UserMsgsResource", typeof(UserMsgsResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,65 @@ namespace DevFreela.Core.Messages.ProjectMessages {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição do Projeto não pode ser vazio..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário deve ser maior de idade..
         /// </summary>
-        internal static string ProjectDescriptionNotEmpty {
+        internal static string UserBirtDateMinAge {
             get {
-                return ResourceManager.GetString("ProjectDescriptionNotEmpty", resourceCulture);
+                return ResourceManager.GetString("UserBirtDateMinAge", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Id do cliente não pode ser vazio..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Data de Aniversário não pode ser vazio..
         /// </summary>
-        internal static string ProjectIdClientNotEmpty {
+        internal static string UserBirthDateNotEmpty {
             get {
-                return ResourceManager.GetString("ProjectIdClientNotEmpty", resourceCulture);
+                return ResourceManager.GetString("UserBirthDateNotEmpty", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Id do freelancer não pode ser vazio..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail inválido..
         /// </summary>
-        internal static string ProjectIdFreelancerNotEmpty {
+        internal static string UserEmailInvalid {
             get {
-                return ResourceManager.GetString("ProjectIdFreelancerNotEmpty", resourceCulture);
+                return ResourceManager.GetString("UserEmailInvalid", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Projeto está em estado inválido..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail deve ter no máximo 200 caracteres..
         /// </summary>
-        internal static string ProjectInvalidState {
+        internal static string UserEmailMaxLength {
             get {
-                return ResourceManager.GetString("ProjectInvalidState", resourceCulture);
+                return ResourceManager.GetString("UserEmailMaxLength", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Projeto não existe..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail do Usuário não pode ser vazio..
         /// </summary>
-        internal static string ProjectNotExist {
+        internal static string UserEmailNotEmpty {
             get {
-                return ResourceManager.GetString("ProjectNotExist", resourceCulture);
+                return ResourceManager.GetString("UserEmailNotEmpty", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Titulo deve ter no máximo 100 caracteres..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nome Completo deve ter no máximo 200 caracteres..
         /// </summary>
-        internal static string ProjectTitleMaxLength {
+        internal static string UserFullnameMaxLength {
             get {
-                return ResourceManager.GetString("ProjectTitleMaxLength", resourceCulture);
+                return ResourceManager.GetString("UserFullnameMaxLength", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Titulo não pode ser vazio..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nome do Usuário não pode ser vazio..
         /// </summary>
-        internal static string ProjectTitleNotEmpty {
+        internal static string UserFullNameNotEmpty {
             get {
-                return ResourceManager.GetString("ProjectTitleNotEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Projeto deve custar pelo menos R$1.000..
-        /// </summary>
-        internal static string ProjectTotalCostMinLength {
-            get {
-                return ResourceManager.GetString("ProjectTotalCostMinLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Valor do projeto não pode ser vazio..
-        /// </summary>
-        internal static string ProjectTotalCostNotEmpty {
-            get {
-                return ResourceManager.GetString("ProjectTotalCostNotEmpty", resourceCulture);
+                return ResourceManager.GetString("UserFullNameNotEmpty", resourceCulture);
             }
         }
     }

@@ -117,31 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ProjectInvalidState" xml:space="preserve">
-    <value>Projeto está em estado inválido.</value>
+  <data name="UserFullNameNotEmpty" xml:space="preserve">
+    <value>Nome do Usuário não pode ser vazio.</value>
   </data>
-  <data name="ProjectTitleNotEmpty" xml:space="preserve">
-    <value>Titulo não pode ser vazio.</value>
+  <data name="UserFullnameMaxLength" xml:space="preserve">
+    <value>Nome Completo deve ter no máximo 200 caracteres.</value>
   </data>
-  <data name="ProjectDescriptionNotEmpty" xml:space="preserve">
-    <value>Descrição do Projeto não pode ser vazio.</value>
+  <data name="UserEmailNotEmpty" xml:space="preserve">
+    <value>E-mail do Usuário não pode ser vazio.</value>
   </data>
-  <data name="ProjectIdClientNotEmpty" xml:space="preserve">
-    <value>Id do cliente não pode ser vazio.</value>
+  <data name="UserEmailMaxLength" xml:space="preserve">
+    <value>E-mail deve ter no máximo 200 caracteres.</value>
   </data>
-  <data name="ProjectIdFreelancerNotEmpty" xml:space="preserve">
-    <value>Id do freelancer não pode ser vazio.</value>
+  <data name="UserEmailInvalid" xml:space="preserve">
+    <value>E-mail inválido.</value>
   </data>
-  <data name="ProjectTotalCostNotEmpty" xml:space="preserve">
-    <value>Valor do projeto não pode ser vazio.</value>
+  <data name="UserBirthDateNotEmpty" xml:space="preserve">
+    <value>Data de Aniversário não pode ser vazio.</value>
   </data>
-  <data name="ProjectTotalCostMinLength" xml:space="preserve">
-    <value>Projeto deve custar pelo menos R$1.000.</value>
-  </data>
-  <data name="ProjectTitleMaxLength" xml:space="preserve">
-    <value>Titulo deve ter no máximo 100 caracteres.</value>
-  </data>
-  <data name="ProjectNotExist" xml:space="preserve">
-    <value>Projeto não existe.</value>
+  <data name="UserBirtDateMinAge" xml:space="preserve">
+    <value>Usuário deve ser maior de idade.</value>
   </data>
 </root>
