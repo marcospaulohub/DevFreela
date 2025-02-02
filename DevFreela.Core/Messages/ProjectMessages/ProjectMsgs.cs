@@ -40,9 +40,34 @@ namespace DevFreela.Core.Messages.ProjectMessages
             return GetResource("DescriptionNotEmpty");
         }
 
+        public static string GetIdClientNotEmpty()
+        {
+            return GetResource("IdClientNotEmpty");
+        }
 
+        public static string GetIdFreelancerNotEmpty()
+        {
+            return GetResource("IdFreelancerNotEmpty");
+        }
 
+        public static string GetTotalCostNotEmpty()
+        {
+            return GetResource("TotalCostNotEmpty");
+        }
 
-        
+        public static string GetTotalCostMinLength()
+        {
+            return GetResource("TotalCostMinLength");
+        }
+
+        public static string GetProjectInvalidState()
+        {
+            return GetResource("ProjectInvalidState");
+        }
+
+        public static string GetProjectNotExist()
+        {
+            return GetResource("ProjectNotExist");
+        }
     }
 }

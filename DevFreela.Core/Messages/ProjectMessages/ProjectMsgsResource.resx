@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ProjectInvalidState" xml:space="preserve">
-    <value>O Projeto está em estado inválido.</value>
+    <value>Projeto está em estado inválido.</value>
   </data>
   <data name="TitleNotEmpty" xml:space="preserve">
     <value>Titulo não pode ser vazio.</value>
@@ -136,9 +136,12 @@
     <value>Valor do projeto não pode ser vazio.</value>
   </data>
   <data name="TotalCostMinLength" xml:space="preserve">
-    <value>O projeto deve custar pelo menos R$1.000.</value>
+    <value>Projeto deve custar pelo menos R$1.000.</value>
   </data>
   <data name="TitleMaxLength" xml:space="preserve">
     <value>Titulo deve ter no máximo 100 caracteres.</value>
+  </data>
+  <data name="ProjectNotExist" xml:space="preserve">
+    <value>Projeto não existe.</value>
   </data>
 </root>
