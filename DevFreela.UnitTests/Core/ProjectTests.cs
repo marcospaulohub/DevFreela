@@ -1,0 +1,89 @@
+﻿using DevFreela.Core.Entities;
+using DevFreela.Core.Enums;
+using DevFreela.Core.Messages.ProjectMessages;
+
+namespace DevFreela.UnitTests.Core
+{
+    public class ProjectTests
+    {
+        [Fact]
+        public void Update_ProjectAndDataAreOk_Success()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            
+            var newTitle = "New Title";
+            var newDescription = "New Description";
+            var newTotalCost = 20000m;
+
+            // Act
+            project.Update(newTitle, newDescription, newTotalCost);
+
+            // Assert
+            Assert.Equal(newTitle, project.Title);
+            Assert.Equal(newDescription, project.Description);
+            Assert.Equal(newTotalCost, project.TotalCost);
+        }
+
+        [Fact]
+        public void ProjectIsCreated_Start_Success()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+
+            // Act
+            project.Start();
+
+            // Assert
+            Assert.Equal(ProjectStatusEnum.InProgress, project.Status);
+            Assert.NotNull(project.StartedAt);
+
+            Assert.True(project.Status == ProjectStatusEnum.InProgress);
+            Assert.False(project.StartedAt is null);
+        }
+
+        [Fact]
+        public void ProjectIsInvalidState_Start_TrowsException()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            project.Start();
+
+            // Act + Assert 
+            Action? start = project.Start;
+
+            var exception = Assert.Throws<InvalidOperationException>(start);
+            Assert.Equal(ProjectMsgs.GetProjectInvalidState(), exception.Message);
+        }
+
+        [Fact]
+        public void ProjectIsInvalidState_Cancel_TrowsException()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            project.Start();
+            project.Cancel();
+
+            // Act + Assert 
+            Action? cancel = project.Cancel;
+
+            var exception = Assert.Throws<InvalidOperationException>(cancel);
+            Assert.Equal(ProjectMsgs.GetProjectInvalidState(), exception.Message);
+        }
+
+        [Fact]
+        public void ProjectIsInvalidState_Complete_TrowsException()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            project.Start();
+            project.Cancel();
+
+            // Act + Assert 
+            Action? cancel = project.Complete;
+
+            var exception = Assert.Throws<InvalidOperationException>(cancel);
+            Assert.Equal(ProjectMsgs.GetProjectInvalidState(), exception.Message);
+        }
+    }
+}
