@@ -20,17 +20,17 @@ namespace DevFreela.Application.Validators.ProjectValidator
 
             RuleFor(p => p.IdClient)
                 .NotEmpty()
-                    .WithMessage(ProjectMsgs.GetText("IdClientNotEmpty"));
+                    .WithMessage(ProjectMsgs.GetIdClientNotEmpty());
 
             RuleFor(p => p.IdFreelancer)
                 .NotEmpty()
-                    .WithMessage(ProjectMsgs.GetText("IdFreelancerNotEmpty"));
+                    .WithMessage(ProjectMsgs.GetIdFreelancerNotEmpty());
 
             RuleFor(p => p.TotalCost)
                 .NotEmpty()
-                    .WithMessage(ProjectMsgs.GetText("TotalCostNotEmpty"))
+                    .WithMessage(ProjectMsgs.GetTotalCostNotEmpty())
                 .GreaterThanOrEqualTo(1000)
-                    .WithMessage(ProjectMsgs.GetText("TotalCostMinLength"));
+                    .WithMessage(ProjectMsgs.GetTotalCostMinLength());
         }
     }
 }

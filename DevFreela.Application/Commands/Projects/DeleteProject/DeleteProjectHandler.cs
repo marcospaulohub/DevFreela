@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Models;
+using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
 using MediatR;
 
@@ -18,7 +19,7 @@ namespace DevFreela.Application.Commands.Projects.DeleteProject
             var project = await _repository.GetById(request.Id);
 
             if (project is null)
-                return ResultViewModel.Error("Projeto não existe.");
+                return ResultViewModel.Error(ProjectMsgs.GetProjectNotExist());
 
             project.SetAsDeleted();
 

@@ -1,5 +1,6 @@
 ﻿using DevFreela.Application.Models;
 using DevFreela.Core.Entities;
+using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
 using MediatR;
 
@@ -19,7 +20,7 @@ namespace DevFreela.Application.Commands.Projects.InsertComment
             var exists = await _repository.Exists(request.IdProject);
 
             if (!exists)
-                return ResultViewModel.Error("Projeto não existe.");
+                return ResultViewModel.Error(ProjectMsgs.GetProjectNotExist());
 
             var comment = new ProjectComment(request.Content, request.IdProject, request.IdUser);
 
