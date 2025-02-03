@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Models;
+using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
 using MediatR;
 
@@ -18,7 +19,7 @@ namespace DevFreela.Application.Queries.Projects.GetProjectById
             var project = await _repository.GetDetailsById(request.Id);
 
             if (project is null)
-                return ResultViewModel<ProjectViewModel>.Error("Projeto não existe.");
+                return ResultViewModel<ProjectViewModel>.Error(ProjectMsgs.GetProjectNotExist());
 
             var model = ProjectViewModel.FromEntity(project);
 
