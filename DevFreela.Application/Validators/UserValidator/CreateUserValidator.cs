@@ -1,10 +1,10 @@
-﻿using DevFreela.Application.Models;
+﻿using DevFreela.Application.Commands.Users.InsertUser;
 using DevFreela.Core.Messages.UserMessages;
 using FluentValidation;
 
 namespace DevFreela.Application.Validators.UserValidator
 {
-    public class CreateUserValidator : AbstractValidator<CreateUserInputModel>
+    public class CreateUserValidator : AbstractValidator<InsertUserCommand>
     {
         public CreateUserValidator()
         {
