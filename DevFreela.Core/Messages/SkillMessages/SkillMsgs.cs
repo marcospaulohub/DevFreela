@@ -2,16 +2,16 @@
 {
     public static class SkillMsgs 
     {
-        private const string FileNameResx = "DevFreela.Core.Messages.SkillMessages.SkillMsgsResource";
+        private const string fileNameResx = "DevFreela.Core.Messages.SkillMessages.SkillMsgsResource";
 
         public static string GetDescriptionNotEmpty()
         {
-            return BaseMsgs.GetResource("SkillDescriptionNotEmpty", FileNameResx);
+            return BaseMsgs.GetResource("SkillDescriptionNotEmpty", fileNameResx);
         }
 
         public static string GetDescriptionMaxLength()
         {
-            return BaseMsgs.GetResource("SkillDescriptionMaxLength", FileNameResx);
+            return BaseMsgs.GetResource("SkillDescriptionMaxLength", fileNameResx);
         }
     }
 }

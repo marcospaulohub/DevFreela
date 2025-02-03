@@ -2,51 +2,51 @@
 {
     public static class ProjectMsgs
     {
-        private const string FileNameResx = "DevFreela.Core.Messages.ProjectMessages.ProjectMsgsResource";
+        private const string fileNameResx = "DevFreela.Core.Messages.ProjectMessages.ProjectMsgsResource";
 
         public static string GetTitleNotEmpty()
         {
-            return BaseMsgs.GetResource("ProjectTitleNotEmpty", FileNameResx);
+            return BaseMsgs.GetResource("ProjectTitleNotEmpty", fileNameResx);
         }
 
         public static string GetTitleMaxLength()
         {
-            return BaseMsgs.GetResource("ProjectTitleMaxLength", FileNameResx);
+            return BaseMsgs.GetResource("ProjectTitleMaxLength", fileNameResx);
         }
 
         public static string GetDescriptionNotEmpty()
         {
-            return BaseMsgs.GetResource("ProjectDescriptionNotEmpty", FileNameResx);
+            return BaseMsgs.GetResource("ProjectDescriptionNotEmpty", fileNameResx);
         }
 
         public static string GetIdClientNotEmpty()
         {
-            return BaseMsgs.GetResource("ProjectIdClientNotEmpty", FileNameResx);
+            return BaseMsgs.GetResource("ProjectIdClientNotEmpty", fileNameResx);
         }
 
         public static string GetIdFreelancerNotEmpty()
         {
-            return BaseMsgs.GetResource("ProjectIdFreelancerNotEmpty", FileNameResx);
+            return BaseMsgs.GetResource("ProjectIdFreelancerNotEmpty", fileNameResx);
         }
 
         public static string GetTotalCostNotEmpty()
         {
-            return BaseMsgs.GetResource("ProjectTotalCostNotEmpty", FileNameResx);
+            return BaseMsgs.GetResource("ProjectTotalCostNotEmpty", fileNameResx);
         }
 
         public static string GetTotalCostMinLength()
         {
-            return BaseMsgs.GetResource("ProjectTotalCostMinLength", FileNameResx);
+            return BaseMsgs.GetResource("ProjectTotalCostMinLength", fileNameResx);
         }
 
         public static string GetProjectInvalidState()
         {
-            return BaseMsgs.GetResource("ProjectInvalidState", FileNameResx);
+            return BaseMsgs.GetResource("ProjectInvalidState", fileNameResx);
         }
 
         public static string GetProjectNotExist()
         {
-            return BaseMsgs.GetResource("ProjectNotExist", FileNameResx);
+            return BaseMsgs.GetResource("ProjectNotExist", fileNameResx);
         }
     }
 }
