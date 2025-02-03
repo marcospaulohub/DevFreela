@@ -138,4 +138,7 @@
   <data name="UserBirtDateMinAge" xml:space="preserve">
     <value>Usuário deve ser maior de idade.</value>
   </data>
+  <data name="UserNotExist" xml:space="preserve">
+    <value>Usuário não existe.</value>
+  </data>
 </root>

@@ -122,5 +122,14 @@ namespace DevFreela.Core.Messages.UserMessages {
                 return ResourceManager.GetString("UserFullNameNotEmpty", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário não existe..
+        /// </summary>
+        internal static string UserNotExist {
+            get {
+                return ResourceManager.GetString("UserNotExist", resourceCulture);
+            }
+        }
     }
 }
