@@ -7,6 +7,42 @@ namespace DevFreela.UnitTests.Core
     public class ProjectTests
     {
         [Fact]
+        public void ProjectIsCreated_Ok_Success()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+
+            // Act
+            project.Start();
+
+            // Assert
+            Assert.Equal(ProjectStatusEnum.InProgress, project.Status);
+            Assert.NotNull(project.StartedAt);
+
+            Assert.True(project.Status == ProjectStatusEnum.InProgress);
+            Assert.False(project.StartedAt is null);
+
+            Assert.True(project.Comments.Count == 0);
+        }
+
+        [Fact]
+        public void ProjectIsCreatedAndStartAndComplet_Ok_Success()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+
+            // Act
+            project.Start();
+            project.Complete();
+
+
+            // Assert
+            Assert.True(project.StartedAt.GetValueOrDefault().Date ==  DateTime.Now.Date);
+            Assert.True(project.CompletedAt.GetValueOrDefault().Date == DateTime.Now.Date);
+
+        }
+
+        [Fact]
         public void Update_ProjectAndDataAreOk_Success()
         {
             // Arrange
@@ -26,6 +62,21 @@ namespace DevFreela.UnitTests.Core
         }
 
         [Fact]
+        public void ProjectIsCreatedAndClintAndFreelance_Ok_Success()
+        {
+            // Arrange
+            var client = new User("Client", "client@email.com", DateTime.Now.AddYears(-18));
+            var freelance = new User("Freelance", "freelance@email.com", DateTime.Now.AddYears(-18));
+            
+            // Act
+            var project = new Project("Projeto A", "Descrição do Projeto", client.Id, freelance.Id, 10000);
+
+            // Assert
+            Assert.True(project.IdClient == client.Id);
+            Assert.True(project.IdFreelancer == freelance.Id);
+        }
+
+        [Fact]
         public void ProjectIsCreated_Start_Success()
         {
             // Arrange
@@ -40,6 +91,22 @@ namespace DevFreela.UnitTests.Core
 
             Assert.True(project.Status == ProjectStatusEnum.InProgress);
             Assert.False(project.StartedAt is null);
+        }
+
+        [Fact]
+        public void ProjectIsCreatedAndAddComment_Ok_Success()
+        {
+            // Arrange
+            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            var user = new User("Fullname", "email@email.com", DateTime.Now.AddYears(-18));
+            var projectComment = new ProjectComment("comment", project.Id, user.Id);
+
+            // Act
+            project.Comments.Add(projectComment);
+
+
+            // Assert
+            Assert.True(project.Comments.Count == 1);
         }
 
         [Fact]
