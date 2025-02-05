@@ -35,11 +35,10 @@ namespace DevFreela.UnitTests.Core
             project.Start();
             project.Complete();
 
-
             // Assert
+            Assert.True(project.CreatedAt.Date == DateTime.Now.Date);
             Assert.True(project.StartedAt.GetValueOrDefault().Date ==  DateTime.Now.Date);
             Assert.True(project.CompletedAt.GetValueOrDefault().Date == DateTime.Now.Date);
-
         }
 
         [Fact]
@@ -104,9 +103,11 @@ namespace DevFreela.UnitTests.Core
             // Act
             project.Comments.Add(projectComment);
 
-
             // Assert
             Assert.True(project.Comments.Count == 1);
+            Assert.True(project.Comments[0].IdProject == project.Id);
+            Assert.True(project.Comments[0].IdUser == user.Id);
+            Assert.True(project.Comments.Count(c => c.Content == projectComment.Content) == 1);
         }
 
         [Fact]
