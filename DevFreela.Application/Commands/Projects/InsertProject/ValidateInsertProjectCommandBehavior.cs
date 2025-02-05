@@ -1,4 +1,5 @@
 ﻿using DevFreela.Application.Models;
+using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Infrastructure.Persistence;
 using MediatR;
 
@@ -21,10 +22,10 @@ namespace DevFreela.Application.Commands.Projects.InsertProject
             var freelancerExists = _context.Users.Any(u => u.Id == request.IdFreelancer);
 
             if (!clientExists)
-                return ResultViewModel<int>.Error("Cliente inválido.");
+                return ResultViewModel<int>.Error(ProjectMsgs.GetIdClientInvalid());
 
             if (!freelancerExists)
-                return ResultViewModel<int>.Error("Freelancer inválido.");
+                return ResultViewModel<int>.Error(ProjectMsgs.GetIdFreelancerInvalid());
 
             return await next();
         }
