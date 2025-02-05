@@ -1,6 +1,4 @@
-﻿using DevFreela.Core.Entities;
-
-namespace DevFreela.Core.Entities
+﻿namespace DevFreela.Core.Entities
 {
     public class User : BaseEntity
     {
