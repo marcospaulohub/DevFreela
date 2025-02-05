@@ -51,6 +51,23 @@ namespace DevFreela.UnitTests.Core
             Assert.NotNull(user);
             Assert.True(user.IsDeleted);
         }
-        
+
+        [Fact]
+        public void UserIsCreatedAndAddSkillsDataAreOk_Success()
+        {
+            // Arrange 
+            var user = new User("Fullname", "email@email.com", DateTime.Now.AddYears(-18));
+            var skill = new Skill("Description");
+            var userSkill = new UserSkill(user.Id, skill.Id);
+
+            // Act
+            user.Skills.Add(userSkill);
+
+            // Assert
+            Assert.True(user.Skills.Count == 1);
+            Assert.True(user.Id == userSkill.IdUser);
+            Assert.True(skill.Id == userSkill.IdSkill);
+        }
+
     }
 }
