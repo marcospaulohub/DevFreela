@@ -144,4 +144,10 @@
   <data name="ProjectNotExist" xml:space="preserve">
     <value>Projeto não existe.</value>
   </data>
+  <data name="ProjectIdClientInvalid" xml:space="preserve">
+    <value>Cliente inválido.</value>
+  </data>
+  <data name="ProjectIdFreelancerInvalid" xml:space="preserve">
+    <value>Freelancer inválido.</value>
+  </data>
 </root>

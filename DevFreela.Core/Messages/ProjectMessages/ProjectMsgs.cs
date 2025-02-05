@@ -48,5 +48,15 @@
         {
             return BaseMsgs.GetResource("ProjectNotExist", fileNameResx);
         }
+
+        public static string GetIdClientInvalid()
+        {
+            return BaseMsgs.GetResource("ProjectIdClientInvalid", fileNameResx);
+        }
+        public static string GetIdFreelancerInvalid()
+        {
+            return BaseMsgs.GetResource("ProjectIdFreelancerInvalid", fileNameResx);
+            
+        }
     }
 }
