@@ -1,4 +1,7 @@
-﻿using DevFreela.Application.Commands.Projects.CompleteProject;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using MediatR;
+using DevFreela.Application.Commands.Projects.CompleteProject;
 using DevFreela.Application.Commands.Projects.DeleteProject;
 using DevFreela.Application.Commands.Projects.InsertComment;
 using DevFreela.Application.Commands.Projects.InsertProject;
@@ -6,8 +9,6 @@ using DevFreela.Application.Commands.Projects.StartProject;
 using DevFreela.Application.Commands.Projects.UpdateProject;
 using DevFreela.Application.Queries.Projects.GetAllProjects;
 using DevFreela.Application.Queries.Projects.GetProjectById;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers
 {

@@ -1,8 +1,10 @@
-﻿using DevFreela.Application.Commands.Users.InsertUser;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using MediatR;
+using DevFreela.Application.Commands.Users.InsertUser;
 using DevFreela.Application.Commands.Users.InsertUserSkill;
 using DevFreela.Application.Queries.Users.GetUserById;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers
 {

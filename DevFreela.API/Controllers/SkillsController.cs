@@ -1,7 +1,8 @@
-﻿using DevFreela.Application.Commands.Skills.InsertSkill;
-using DevFreela.Application.Queries.Skills.GetAllSkills;
-using MediatR;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
+using DevFreela.Application.Commands.Skills.InsertSkill;
+using DevFreela.Application.Queries.Skills.GetAllSkills;
 
 namespace DevFreela.API.Controllers
 {
