@@ -1,4 +1,6 @@
-﻿namespace DevFreela.Core.Entities
+﻿using System;
+
+namespace DevFreela.Core.Entities
 {
     public abstract class BaseEntity
     {

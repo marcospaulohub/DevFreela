@@ -25,6 +25,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
 
             return projects;
         }
+        
         public async Task<Project?> GetDetailsById(int id)
         {
             var project = await _context.Projects
@@ -35,6 +36,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
 
             return project;
         }
+        
         public async Task<Project?> GetById(int id)
         {
             var project = await _context.Projects
@@ -42,6 +44,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
 
             return project;
         }
+        
         public async Task<int> Add(Project project)
         {
             await _context.Projects.AddAsync(project);
@@ -49,20 +52,22 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
 
             return project.Id;
         }
+        
         public async Task Update(Project project)
         {
             _context.Projects.Update(project);
             await _context.SaveChangesAsync();
         }
+        
         public async Task AddComment(ProjectComment comment)
         {
             await _context.ProjectComments.AddAsync(comment);
             await _context.SaveChangesAsync();
         }
+        
         public async Task<bool> Exists(int id)
         {
             return await _context.Projects.AnyAsync(p => p.Id == id);
         }
-
     }
 }

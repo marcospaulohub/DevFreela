@@ -1,4 +1,6 @@
-﻿namespace DevFreela.Core.Entities
+﻿using System.Collections.Generic;
+
+namespace DevFreela.Core.Entities
 {
     public class Skill : BaseEntity
     {

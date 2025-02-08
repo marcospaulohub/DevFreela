@@ -1,4 +1,6 @@
-﻿using DevFreela.Core.Enums;
+﻿using System;
+using System.Collections.Generic;
+using DevFreela.Core.Enums;
 using DevFreela.Core.Messages.ProjectMessages;
 
 namespace DevFreela.Core.Entities
@@ -40,7 +42,9 @@ namespace DevFreela.Core.Entities
                 StartedAt = DateTime.Now;
             }
             else
+            {
                 throw new InvalidOperationException(ProjectMsgs.GetProjectInvalidState());
+            }
         }
 
         public void Cancel()
@@ -50,7 +54,9 @@ namespace DevFreela.Core.Entities
                 Status = ProjectStatusEnum.Cancelled;
             }
             else
+            {
                 throw new InvalidOperationException(ProjectMsgs.GetProjectInvalidState());
+            }
         }
 
         public void Complete()
@@ -61,7 +67,9 @@ namespace DevFreela.Core.Entities
                 CompletedAt = DateTime.Now;
             }
             else
+            {
                 throw new InvalidOperationException(ProjectMsgs.GetProjectInvalidState());
+            }
         }
 
         public void SetPaymentPending()

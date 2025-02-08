@@ -1,4 +1,6 @@
-﻿using DevFreela.Core.Entities;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using DevFreela.Core.Entities;
 
 namespace DevFreela.Core.Repositories
 {
