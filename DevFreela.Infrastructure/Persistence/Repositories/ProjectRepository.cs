@@ -1,8 +1,9 @@
-﻿using Azure.Core;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using DevFreela.Core.Entities;
 using DevFreela.Core.Repositories;
-using Microsoft.EntityFrameworkCore;
-using System.Xml.Linq;
 
 namespace DevFreela.Infrastructure.Persistence.Repositories
 {

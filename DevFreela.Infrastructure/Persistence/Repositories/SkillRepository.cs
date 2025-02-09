@@ -1,6 +1,8 @@
-﻿using DevFreela.Core.Entities;
-using DevFreela.Core.Repositories;
+﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using DevFreela.Core.Entities;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.Infrastructure.Persistence.Repositories
 {
