@@ -1,6 +1,7 @@
-﻿using DevFreela.Application.Models;
-using DevFreela.Core.Entities;
+﻿using System;
 using MediatR;
+using DevFreela.Application.Models;
+using DevFreela.Core.Entities;
 
 namespace DevFreela.Application.Commands.Users.InsertUser
 {

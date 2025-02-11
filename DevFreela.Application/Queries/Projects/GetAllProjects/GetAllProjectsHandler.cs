@@ -1,6 +1,10 @@
-﻿using DevFreela.Application.Models;
-using DevFreela.Core.Repositories;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using MediatR;
+using DevFreela.Application.Models;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.Application.Queries.Projects.GetAllProjects
 {

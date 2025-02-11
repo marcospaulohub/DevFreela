@@ -2,6 +2,8 @@
 using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DevFreela.Application.Commands.Projects.UpdateProject
 {

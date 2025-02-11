@@ -1,5 +1,6 @@
 ﻿using DevFreela.Application.Models;
 using MediatR;
+using System.Collections.Generic;
 
 namespace DevFreela.Application.Queries.Skills.GetAllSkills
 {

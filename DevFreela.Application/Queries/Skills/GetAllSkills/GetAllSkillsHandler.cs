@@ -1,6 +1,11 @@
-﻿using DevFreela.Application.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using DevFreela.Application.Models;
 using DevFreela.Core.Repositories;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DevFreela.Application.Queries.Skills.GetAllSkills
 {

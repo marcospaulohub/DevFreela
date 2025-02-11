@@ -1,7 +1,9 @@
 ﻿using DevFreela.Application.Models;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
 using DevFreela.Core.Messages.UserMessages;
 using DevFreela.Core.Repositories;
-using MediatR;
 
 namespace DevFreela.Application.Queries.Users.GetUserById
 {

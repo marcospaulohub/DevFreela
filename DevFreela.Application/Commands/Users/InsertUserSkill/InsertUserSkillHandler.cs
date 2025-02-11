@@ -2,6 +2,9 @@
 using DevFreela.Core.Entities;
 using DevFreela.Core.Repositories;
 using MediatR;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DevFreela.Application.Commands.Users.InsertUserSkill
 {

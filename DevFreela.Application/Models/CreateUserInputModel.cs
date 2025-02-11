@@ -1,4 +1,6 @@
-﻿namespace DevFreela.Application.Models
+﻿using System;
+
+namespace DevFreela.Application.Models
 {
     public class CreateUserInputModel
     {

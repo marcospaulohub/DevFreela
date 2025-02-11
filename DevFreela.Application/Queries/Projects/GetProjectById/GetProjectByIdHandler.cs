@@ -1,7 +1,10 @@
-﻿using DevFreela.Application.Models;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
+using DevFreela.Application.Models;
 using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
-using MediatR;
+
 
 namespace DevFreela.Application.Queries.Projects.GetProjectById
 {
