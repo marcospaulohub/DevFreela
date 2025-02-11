@@ -1,8 +1,8 @@
-﻿using DevFreela.Application.Models;
-using DevFreela.Core.Repositories;
-using MediatR;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using DevFreela.Application.Models;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.Application.Commands.Users.InsertUser
 {

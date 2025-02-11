@@ -1,6 +1,6 @@
-﻿using DevFreela.Application.Models;
+﻿using MediatR;
+using DevFreela.Application.Models;
 using DevFreela.Core.Entities;
-using MediatR;
 
 namespace DevFreela.Application.Commands.Projects.InsertProject
 {

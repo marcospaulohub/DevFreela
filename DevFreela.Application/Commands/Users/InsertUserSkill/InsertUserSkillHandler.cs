@@ -1,10 +1,10 @@
-﻿using DevFreela.Application.Models;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
+using MediatR;
+using DevFreela.Application.Models;
 using DevFreela.Core.Entities;
 using DevFreela.Core.Repositories;
-using MediatR;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace DevFreela.Application.Commands.Users.InsertUserSkill
 {

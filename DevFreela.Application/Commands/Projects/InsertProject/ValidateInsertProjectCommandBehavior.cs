@@ -1,10 +1,10 @@
-﻿using DevFreela.Application.Models;
-using DevFreela.Core.Messages.ProjectMessages;
-using DevFreela.Infrastructure.Persistence;
-using MediatR;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using DevFreela.Application.Models;
+using DevFreela.Core.Messages.ProjectMessages;
+using DevFreela.Infrastructure.Persistence;
 
 namespace DevFreela.Application.Commands.Projects.InsertProject
 {

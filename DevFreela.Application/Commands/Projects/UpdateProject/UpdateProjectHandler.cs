@@ -1,9 +1,9 @@
-﻿using DevFreela.Application.Models;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
+using DevFreela.Application.Models;
 using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
-using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace DevFreela.Application.Commands.Projects.UpdateProject
 {

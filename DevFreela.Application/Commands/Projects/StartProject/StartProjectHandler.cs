@@ -1,9 +1,9 @@
-﻿using DevFreela.Application.Models;
-using DevFreela.Core.Messages.ProjectMessages;
-using DevFreela.Core.Repositories;
-using MediatR;
+﻿using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using DevFreela.Application.Models;
+using DevFreela.Core.Messages.ProjectMessages;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.Application.Commands.Projects.StartProject
 {
