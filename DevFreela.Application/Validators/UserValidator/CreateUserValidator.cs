@@ -1,6 +1,7 @@
 ﻿using DevFreela.Application.Commands.Users.InsertUser;
 using DevFreela.Core.Messages.UserMessages;
 using FluentValidation;
+using System;
 
 namespace DevFreela.Application.Validators.UserValidator
 {

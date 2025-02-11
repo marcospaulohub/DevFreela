@@ -1,6 +1,6 @@
-﻿using DevFreela.Application.Models;
+﻿using System.Collections.Generic;
 using MediatR;
-using System.Collections.Generic;
+using DevFreela.Application.Models;
 
 namespace DevFreela.Application.Queries.Projects.GetAllProjects
 {

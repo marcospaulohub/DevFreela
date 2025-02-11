@@ -1,7 +1,7 @@
-﻿using DevFreela.Application.Models;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using DevFreela.Application.Models;
 using DevFreela.Core.Messages.UserMessages;
 using DevFreela.Core.Repositories;
 
