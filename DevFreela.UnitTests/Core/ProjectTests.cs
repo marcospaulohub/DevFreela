@@ -1,6 +1,7 @@
 ﻿using DevFreela.Core.Entities;
 using DevFreela.Core.Enums;
 using DevFreela.Core.Messages.ProjectMessages;
+using DevFreela.UnitTests.Fakes;
 using FluentAssertions;
 
 namespace DevFreela.UnitTests.Core
@@ -11,7 +12,11 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsCreated_Ok_Success()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+
+            //Dados fixos.
+            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            //Utilizando dados fakes.
+            var project = FakeDataHelper.CreateFakeProject();
 
             // Act
             project.Start();
@@ -38,7 +43,11 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsCreatedAndStartAndComplet_Ok_Success()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+
+            //Dados fixos.
+            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            //Utilizando dados fakes.
+            var project = FakeDataHelper.CreateFakeProject();
 
             // Act
             project.Start();
@@ -54,8 +63,12 @@ namespace DevFreela.UnitTests.Core
         public void Update_ProjectAndDataAreOk_Success()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
-            
+
+            //Dados fixos.
+            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            //Utilizando dados fakes.
+            var project = FakeDataHelper.CreateFakeProject();
+
             var newTitle = "New Title";
             var newDescription = "New Description";
             var newTotalCost = 20000m;

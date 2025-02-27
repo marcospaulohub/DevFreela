@@ -5,6 +5,7 @@ using DevFreela.Application.Commands.Projects.DeleteProject;
 using DevFreela.Core.Entities;
 using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
+using DevFreela.UnitTests.Fakes;
 
 namespace DevFreela.UnitTests.Application
 {
@@ -15,7 +16,11 @@ namespace DevFreela.UnitTests.Application
         {
             // Arrange 
             const int ID = 1;
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 20000);
+
+            //Dados fixos.
+            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 20000);
+            //Utilizando dados fakes.
+            var project = FakeDataHelper.CreateFakeProject();
 
             var repository = Substitute.For<IProjectRepository>();
             repository.GetById(1).Returns(Task.FromResult((Project?)project));
@@ -44,7 +49,11 @@ namespace DevFreela.UnitTests.Application
         {
             // Arrange 
             const int ID = 1;
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 20000);
+            
+            //Dados fixos.
+            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 20000);
+            //Utilizando dados fakes.
+            var project = FakeDataHelper.CreateFakeProject();
 
             var repository = Mock.Of<IProjectRepository>(p =>
                 p.GetById(It.IsAny<int>()) == Task.FromResult(project) &&
