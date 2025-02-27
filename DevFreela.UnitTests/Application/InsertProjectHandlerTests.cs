@@ -1,8 +1,9 @@
-﻿using DevFreela.Application.Commands.Projects.InsertProject;
-using DevFreela.Core.Entities;
-using DevFreela.Core.Repositories;
+﻿using FluentAssertions;
 using Moq;
 using NSubstitute;
+using DevFreela.Application.Commands.Projects.InsertProject;
+using DevFreela.Core.Entities;
+using DevFreela.Core.Repositories;
 
 namespace DevFreela.UnitTests.Application
 {
@@ -16,7 +17,6 @@ namespace DevFreela.UnitTests.Application
             var repository = Substitute.For<IProjectRepository>();
             repository.Add(Arg.Any<Project>()).Returns(Task.FromResult(ID));
 
-
             var command = new InsertProjectCommand("Project A", "Descrição do Projeto", 1, 2, 1000);
 
             var handler = new InsertProjectHandler(repository);
@@ -25,8 +25,18 @@ namespace DevFreela.UnitTests.Application
             var result = await handler.Handle(command, new CancellationToken());
 
             // Assert
+
+            //xUnit
             Assert.True(result.IsSuccess);
-            Assert.Equal(ID, result.Data); 
+            //FluentAssertions
+            result.IsSuccess.Should().BeTrue();
+
+            //xUnit
+            Assert.Equal(ID, result.Data);
+            //FluentAssertions
+            result.Data.Should().Be(ID);
+
+
             await repository.Received(1).Add(Arg.Any<Project>());
         }
 
