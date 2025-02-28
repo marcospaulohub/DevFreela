@@ -27,6 +27,14 @@ namespace DevFreela.Infrastructure.Persistence.Mappings
                    .HasColumnType("bit")
                    .IsRequired();
 
+            builder.Property(u => u.Password)
+                 .HasColumnType("varchar(20)")
+                 .IsRequired();
+
+            builder.Property(u => u.Role)
+                 .HasColumnType("varchar(20)")
+                 .IsRequired();
+
             builder.HasMany(u => u.Skills)
                    .WithOne(u => u.User)
                    .HasForeignKey(u => u.IdUser)
