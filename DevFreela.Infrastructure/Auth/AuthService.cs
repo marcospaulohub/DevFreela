@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DevFreela.Infrastructure.Auth
 {
@@ -19,7 +20,21 @@ namespace DevFreela.Infrastructure.Auth
 
         public string ComputeHash(string password)
         {
-            throw new NotImplementedException();
+            using (var hash = SHA256.Create())
+            {
+                var passwordBytes = Encoding.UTF8.GetBytes(password);
+
+                var hasBytes = hash.ComputeHash(passwordBytes);
+
+                var builder = new StringBuilder();
+
+                for (var i = 0; i < hasBytes.Length; i++)
+                {
+                    builder.Append(hasBytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
 
         public string GenerateToken(string email, string role)
