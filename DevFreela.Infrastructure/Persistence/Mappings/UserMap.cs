@@ -28,7 +28,7 @@ namespace DevFreela.Infrastructure.Persistence.Mappings
                    .IsRequired();
 
             builder.Property(u => u.Password)
-                 .HasColumnType("varchar(20)")
+                 .HasColumnType("varchar(max)")
                  .IsRequired();
 
             builder.Property(u => u.Role)
