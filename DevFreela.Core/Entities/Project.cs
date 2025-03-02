@@ -7,7 +7,11 @@ namespace DevFreela.Core.Entities
 {
     public class Project : BaseEntity
     {
-        protected Project() { }
+        public Project() 
+        {
+            Status = ProjectStatusEnum.Created;
+            Comments = [];
+        }
 
         public Project(string title, string description, int idClient, int idFreelancer, decimal totalCost)
             : base()

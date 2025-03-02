@@ -5,6 +5,8 @@ namespace DevFreela.Core.Entities
 {
     public class User : BaseEntity
     {
+        public User() { }
+
         public User(string fullName, string email, DateTime birthDate)
         : base()
             {
