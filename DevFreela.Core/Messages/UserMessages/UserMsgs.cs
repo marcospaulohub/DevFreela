@@ -36,5 +36,21 @@
         {
             return BaseMsgs.GetResource("UserNotExist", fileNameResx);
         }
+        public static string GetPasswordNotEmpty()
+        {
+            return BaseMsgs.GetResource("UserPasswordNotEmpty", fileNameResx);
+        }
+        public static string GetPasswordMaxLength()
+        {
+            return BaseMsgs.GetResource("UserPasswordMaxLength", fileNameResx);
+        }
+        public static string GetRoleNotEmpty()
+        {
+            return BaseMsgs.GetResource("UserRoleNotEmpty", fileNameResx);
+        }
+        public static string GetRoleMaxLength()
+        {
+            return BaseMsgs.GetResource("UserRoleMaxLength", fileNameResx);
+        }
     }
 }
