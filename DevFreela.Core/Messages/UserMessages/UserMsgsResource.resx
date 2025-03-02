@@ -141,4 +141,16 @@
   <data name="UserNotExist" xml:space="preserve">
     <value>Usuário não existe.</value>
   </data>
+  <data name="UserPasswordNotEmpty" xml:space="preserve">
+    <value>Senha do Usuário não pode ser vazio.</value>
+  </data>
+  <data name="UserRoleNotEmpty" xml:space="preserve">
+    <value>Permissão do Usuário não pode ser vazio.</value>
+  </data>
+  <data name="UserPasswordMaxLength" xml:space="preserve">
+    <value>Senha deve ter no máximo 20 caracteres.</value>
+  </data>
+  <data name="UserRoleMaxLength" xml:space="preserve">
+    <value>Permissão deve ter no máximo 20 caracteres.</value>
+  </data>
 </root>
