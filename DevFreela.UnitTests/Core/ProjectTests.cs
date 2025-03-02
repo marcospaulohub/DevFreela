@@ -11,18 +11,36 @@ namespace DevFreela.UnitTests.Core
         [Fact]
         public void ProjectIsCreated_Ok_Success()
         {
-            // Arrange
+            // Arrange + Act
+            var project = FakeDataHelper.CreateFakeProject();
 
-            //Dados fixos.
-            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
-            //Utilizando dados fakes.
+            // Assert
+
+            //xUnit
+            Assert.Equal(ProjectStatusEnum.Created, project.Status);
+            //FluentAssertions
+            project.Status.Should().Be(ProjectStatusEnum.Created);
+
+            //xUnit
+            Assert.Null(project.StartedAt);
+            //FluentAssertions
+            project.StartedAt.Should().BeNull();
+
+            Assert.True(project.Status == ProjectStatusEnum.Created);
+            Assert.True(project.StartedAt is null);
+            Assert.True(project.Comments.Count == 0);
+        }
+
+        [Fact]
+        public void ProjectIsCreatedAndStart_Ok_Success()
+        {
+            // Arrange
             var project = FakeDataHelper.CreateFakeProject();
 
             // Act
             project.Start();
 
             // Assert
-
             //xUnit
             Assert.Equal(ProjectStatusEnum.InProgress, project.Status);
             //FluentAssertions
@@ -33,9 +51,6 @@ namespace DevFreela.UnitTests.Core
             //FluentAssertions
             project.StartedAt.Should().NotBeNull();
 
-            Assert.True(project.Status == ProjectStatusEnum.InProgress);
-            Assert.False(project.StartedAt is null);
-
             Assert.True(project.Comments.Count == 0);
         }
 
@@ -43,10 +58,6 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsCreatedAndStartAndComplet_Ok_Success()
         {
             // Arrange
-
-            //Dados fixos.
-            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
-            //Utilizando dados fakes.
             var project = FakeDataHelper.CreateFakeProject();
 
             // Act
@@ -63,10 +74,6 @@ namespace DevFreela.UnitTests.Core
         public void Update_ProjectAndDataAreOk_Success()
         {
             // Arrange
-
-            //Dados fixos.
-            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
-            //Utilizando dados fakes.
             var project = FakeDataHelper.CreateFakeProject();
 
             var newTitle = "New Title";
@@ -86,9 +93,9 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsCreatedAndClintAndFreelance_Ok_Success()
         {
             // Arrange
-            var client = new User("Client", "client@email.com", DateTime.Now.AddYears(-18));
-            var freelance = new User("Freelance", "freelance@email.com", DateTime.Now.AddYears(-18));
-            
+            var client = FakeDataHelper.CreateFakeUserClient();
+            var freelance = FakeDataHelper.CreateFakeUserFreelancer();
+
             // Act
             var project = new Project("Projeto A", "Descrição do Projeto", client.Id, freelance.Id, 10000);
 
@@ -101,7 +108,7 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsCreated_Start_Success()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            var project = FakeDataHelper.CreateFakeProject();
 
             // Act
             project.Start();
@@ -118,8 +125,8 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsCreatedAndAddComment_Ok_Success()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
-            var user = new User("Fullname", "email@email.com", DateTime.Now.AddYears(-18));
+            var user = FakeDataHelper.CreateFakeUserClient();
+            var project = FakeDataHelper.CreateFakeProject();
             var projectComment = new ProjectComment("comment", project.Id, user.Id);
 
             // Act
@@ -136,7 +143,7 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsInvalidState_Start_TrowsException()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            var project = FakeDataHelper.CreateFakeProject();
             project.Start();
 
             // Act + Assert 
@@ -150,14 +157,13 @@ namespace DevFreela.UnitTests.Core
             start.Should()
                 .Throw<InvalidOperationException>()
                 .WithMessage(ProjectMsgs.GetProjectInvalidState());
-
         }
 
         [Fact]
         public void ProjectIsInvalidState_Cancel_TrowsException()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            var project = FakeDataHelper.CreateFakeProject();
             project.Start();
             project.Cancel();
 
@@ -172,7 +178,7 @@ namespace DevFreela.UnitTests.Core
         public void ProjectIsInvalidState_Complete_TrowsException()
         {
             // Arrange
-            var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 10000);
+            var project = FakeDataHelper.CreateFakeProject();
             project.Start();
             project.Cancel();
 

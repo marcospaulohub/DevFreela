@@ -15,20 +15,15 @@ namespace DevFreela.UnitTests.Application
         public async Task ProjectExists_Delete_Success_NSubstitute()
         {
             // Arrange 
-            const int ID = 1;
-
-            //Dados fixos.
-            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 20000);
-            //Utilizando dados fakes.
             var project = FakeDataHelper.CreateFakeProject();
 
             var repository = Substitute.For<IProjectRepository>();
-            repository.GetById(1).Returns(Task.FromResult((Project?)project));
+            repository.GetById(project.Id).Returns(Task.FromResult((Project?)project));
             repository.Update(Arg.Any<Project>()).Returns(Task.CompletedTask);
             
             var handler = new DeleteProjectHandler(repository);
 
-            var command = new DeleteProjectCommand(ID);
+            var command = new DeleteProjectCommand(project.Id);
 
             // Act 
             var result = await handler.Handle(command, new CancellationToken());
@@ -40,7 +35,7 @@ namespace DevFreela.UnitTests.Application
             //FluentAssertions
             result.IsSuccess.Should().BeTrue();
 
-            await repository.Received(1).GetById(ID);
+            await repository.Received(1).GetById(project.Id);
             await repository.Received(1).Update(Arg.Any<Project>());
         }
 
@@ -48,11 +43,6 @@ namespace DevFreela.UnitTests.Application
         public async Task ProjectExists_Delete_Success_Moq()
         {
             // Arrange 
-            const int ID = 1;
-            
-            //Dados fixos.
-            //var project = new Project("Projeto A", "Descrição do Projeto", 1, 2, 20000);
-            //Utilizando dados fakes.
             var project = FakeDataHelper.CreateFakeProject();
 
             var repository = Mock.Of<IProjectRepository>(p =>
@@ -62,14 +52,14 @@ namespace DevFreela.UnitTests.Application
 
             var handler = new DeleteProjectHandler(repository);
 
-            var command = new DeleteProjectCommand(ID);
+            var command = new DeleteProjectCommand(project.Id);
 
             // Act 
             var result = await handler.Handle(command, new CancellationToken());
 
             // Assert
             Assert.True(result.IsSuccess);
-            Mock.Get(repository).Verify(r => r.GetById(1), Times.Once);
+            Mock.Get(repository).Verify(r => r.GetById(project.Id), Times.Once);
             Mock.Get(repository).Verify(r => r.Update(It.IsAny<Project>()), Times.Once);
         }
 
