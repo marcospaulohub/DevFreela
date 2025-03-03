@@ -1,9 +1,11 @@
-﻿using DevFreela.Application.Commands.Projects.InsertProject;
-using DevFreela.Application.Models;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using DevFreela.Application.Commands.Projects.InsertProject;
+using DevFreela.Application.Models;
+using DevFreela.Application.Services;
+using DevFreela.Infrastructure.Notifications;
 
 namespace DevFreela.Application
 {
@@ -13,7 +15,8 @@ namespace DevFreela.Application
         {
             services
                 .AddHandlers()
-                .AddValidation();
+                .AddValidation()
+                .AddServices();
 
             return services;
         }
@@ -34,6 +37,14 @@ namespace DevFreela.Application
                 .AddFluentValidationAutoValidation()
                 .AddValidatorsFromAssemblyContaining<InsertProjectCommand>();
             
+            return services;
+        }
+
+        private static IServiceCollection AddServices(this IServiceCollection services)
+        {
+            services.AddScoped<IPasswordRecoveryService, PasswordRecoveryService>();
+            services.AddScoped<IEmailService, EmailService>();
+
             return services;
         }
     }
