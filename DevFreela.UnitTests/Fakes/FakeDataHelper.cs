@@ -51,6 +51,10 @@ namespace DevFreela.UnitTests.Fakes
             .RuleFor(u => u.Password, f => f.Internet.Password(10))
             .RuleFor(u => u.Role, "freelancer");
 
+        private static readonly Faker<Skill> _skillFaker = new Faker<Skill>()
+            .RuleFor(s => s.Id, f => f.Random.Int(1, 1000))
+            .RuleFor(s => s.Description, f => f.Commerce.ProductName());
+
         private static readonly Faker<Project> _projectFaker = new Faker<Project>()
             .RuleFor(p => p.Id, f => f.Random.Int(1, 1000))
             .RuleFor(p => p.Title, f => f.Commerce.ProductName())
@@ -62,6 +66,8 @@ namespace DevFreela.UnitTests.Fakes
         public static User CreateFakeUserClient() => _userFakerClient.Generate();
 
         public static User CreateFakeUserFreelancer() => _userFakerFreelancer.Generate();
+
+        public static Skill CreateFakeSkill() => _skillFaker.Generate();
 
         public static Project CreateFakeProject() => _projectFaker.Generate();
 
