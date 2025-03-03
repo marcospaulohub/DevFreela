@@ -1,4 +1,5 @@
 ﻿using DevFreela.Core.Entities;
+using DevFreela.UnitTests.Fakes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,15 +17,19 @@ namespace DevFreela.UnitTests.Core
             var fullname = "Fullname";
             var email = "email@email.com";
             var birthDate = DateTime.Now.AddYears(-18);
+            var password = "password";
+            var role = "client";
 
             // Act
-            var user = new User(fullname, email, birthDate);
+            var user = new User(fullname, email, birthDate,password, role);
 
             // Assert
             Assert.NotNull(user);
             Assert.Equal(fullname, user.FullName);
             Assert.Equal(email, user.Email);
             Assert.Equal(birthDate, user.BirthDate);
+            Assert.Equal(password, user.Password);
+            Assert.Equal(role, user.Role);
             Assert.True(user.Active);
             Assert.False(user.IsDeleted);
 
@@ -38,11 +43,7 @@ namespace DevFreela.UnitTests.Core
         public void UserIsCreatedAndDeletedOk_Success()
         {
             // Arrange 
-            var fullname = "Fullname";
-            var email = "email@email.com";
-            var birthDate = DateTime.Now.AddYears(-18);
-
-            var user = new User(fullname, email, birthDate);
+            var user = FakeDataHelper.CreateFakeUserClient();
 
             // Act
             user.SetAsDeleted();
@@ -56,8 +57,8 @@ namespace DevFreela.UnitTests.Core
         public void UserIsCreatedAndAddSkillsDataAreOk_Success()
         {
             // Arrange 
-            var user = new User("Fullname", "email@email.com", DateTime.Now.AddYears(-18));
-            var skill = new Skill("Description");
+            var user = FakeDataHelper.CreateFakeUserClient();
+            var skill = FakeDataHelper.CreateFakeSkill();
             var userSkill = new UserSkill(user.Id, skill.Id);
 
             // Act
@@ -67,6 +68,20 @@ namespace DevFreela.UnitTests.Core
             Assert.True(user.Skills.Count == 1);
             Assert.True(user.Id == userSkill.IdUser);
             Assert.True(skill.Id == userSkill.IdSkill);
+        }
+
+        [Fact]
+        public void UserUpdatePasswordOk_Success()
+        {
+            // Arrange
+            var user = FakeDataHelper.CreateFakeUserClient();
+            var newPassword = new Random().Next(100000, 999999).ToString();
+
+            // Act
+            user.UpdatePassword(newPassword);
+
+            // Assert
+            Assert.True(user.Password == newPassword);
         }
 
     }
