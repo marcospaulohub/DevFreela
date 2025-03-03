@@ -9,6 +9,7 @@ namespace DevFreela.Core.Repositories
         Task<User?> GetById(int id);
         Task<User?> GetByEmail(string email);
         Task<int> Add(User user);
+        Task Update(User user);
         Task AddSkill(List<UserSkill> userSkills);
         Task<User?> Login(string email, string hash);
     }
