@@ -5,21 +5,13 @@ namespace DevFreela.Core.Entities
 {
     public class User : BaseEntity
     {
-        public User() { }
-
-        public User(string fullName, string email, DateTime birthDate)
-        : base()
-            {
-                FullName = fullName;
-                Email = email;
-                BirthDate = birthDate;
-                Active = true;
-
-                Skills = [];
-                OwnedProjects = [];
-                FrelanceProjects = [];
-                Comments = [];
-            }
+        public User() 
+        {
+            Skills = [];
+            OwnedProjects = [];
+            FrelanceProjects = [];
+            Comments = [];
+        }
 
         public User(string fullName, string email, DateTime birthDate, string password, string role)
             : base()
@@ -50,5 +42,9 @@ namespace DevFreela.Core.Entities
         public List<Project> FrelanceProjects { get; private set; }
         public List<ProjectComment> Comments { get; private set; }
 
+        public void UpdatePassword(string password)
+        {
+            Password = password;
+        }
     }
 }
