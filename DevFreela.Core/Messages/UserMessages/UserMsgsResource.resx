@@ -153,4 +153,19 @@
   <data name="UserRoleMaxLength" xml:space="preserve">
     <value>Permissão deve ter no máximo 20 caracteres.</value>
   </data>
+  <data name="UserRequestPasswordRecoveryError" xml:space="preserve">
+    <value>Erro ao solicitar recuperação de senha.</value>
+  </data>
+  <data name="UserRequestPasswordRecoverySubject" xml:space="preserve">
+    <value>Código de Recuperação</value>
+  </data>
+  <data name="UserRequestPasswordRecoveryMessage" xml:space="preserve">
+    <value>Seu código de recuperação é: </value>
+  </data>
+  <data name="UserValidateRecoveryCodeError" xml:space="preserve">
+    <value>Código Invalido.</value>
+  </data>
+  <data name="UserChangePasswordError" xml:space="preserve">
+    <value>Erro na alteração da senha.</value>
+  </data>
 </root>

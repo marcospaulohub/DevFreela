@@ -52,5 +52,30 @@
         {
             return BaseMsgs.GetResource("UserRoleMaxLength", fileNameResx);
         }
+
+        public static string GetUserRequestPasswordRecoveryError()
+        {
+            return BaseMsgs.GetResource("UserRequestPasswordRecoveryError", fileNameResx);
+        }
+
+        public static string GetUserRequestPasswordRecoverySubject()
+        {
+            return BaseMsgs.GetResource("UserRequestPasswordRecoverySubject", fileNameResx);
+        }
+
+        public static string GetUserRequestPasswordRecoveryMessage()
+        {
+            return BaseMsgs.GetResource("UserRequestPasswordRecoveryMessage", fileNameResx);
+        }
+
+        public static string GetUserValidateRecoveryCodeError()
+        {
+            return BaseMsgs.GetResource("UserValidateRecoveryCodeError", fileNameResx);
+        }
+
+        public static string GetUserChangePasswordError()
+        {
+            return BaseMsgs.GetResource("UserChangePasswordError", fileNameResx);
+        }
     }
 }
