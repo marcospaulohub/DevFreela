@@ -8,6 +8,7 @@ using DevFreela.Application.Commands.Users.InsertUserSkill;
 using DevFreela.Application.Queries.Users.GetUserById;
 using DevFreela.Application.Queries.Users.Login;
 using DevFreela.Application.Models;
+using DevFreela.Application.Services;
 
 namespace DevFreela.API.Controllers
 {
@@ -17,13 +18,14 @@ namespace DevFreela.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IPasswordRecoveryService _passwordRecoveryService;
 
-        public UsersController(IMediator mediator)
+        public UsersController(IMediator mediator, IPasswordRecoveryService passwordRecoveryService)
         {
             _mediator = mediator;
+            _passwordRecoveryService = passwordRecoveryService;
         }
 
-        // GET api/users
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -35,9 +37,7 @@ namespace DevFreela.API.Controllers
             return Ok(result);
         }
 
-        // POST api/users
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> Post(InsertUserCommand command)
         {
             var result = await _mediator.Send(command);
@@ -80,6 +80,42 @@ namespace DevFreela.API.Controllers
             // Salvar no banco de dados ou salvar local ou salvar no S3 AWS, etc.
 
             return Ok(description);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("password-recovery/request")]
+        public async Task<IActionResult> RequestPasswordRecovery(PasswordRecoveryRequestInputModel model)
+        {
+            var result = await _passwordRecoveryService.RequestPasswordRecovery(model);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("password-recovery/validate")]
+        public async Task<IActionResult> ValidateRecoveryCode(ValidateRecoveryCodeInputModel model)
+        {
+            var result = _passwordRecoveryService.ValidateRecoveryCode(model);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("password-recovery/change")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordInputModel model)
+        {
+            var result = await _passwordRecoveryService.ChangePassword(model);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+
+            return Ok(result);
         }
     }
 }
