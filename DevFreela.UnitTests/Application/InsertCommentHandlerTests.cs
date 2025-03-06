@@ -2,6 +2,7 @@
 using DevFreela.Core.Entities;
 using DevFreela.Core.Messages.ProjectMessages;
 using DevFreela.Core.Repositories;
+using DevFreela.UnitTests.Fakes;
 using NSubstitute;
 
 namespace DevFreela.UnitTests.Application
@@ -15,7 +16,8 @@ namespace DevFreela.UnitTests.Application
             var repository = Substitute.For<IProjectRepository>();
             repository.AddComment(Arg.Any<ProjectComment>()).Returns(Task.FromResult);
 
-            var command = new InsertCommentCommand("Comentário", 1, 1);
+            var command = FakeDataHelper.CreateFakeInsertCommentCommand();
+
             var handler = new InsertCommentHandler(repository);
 
             // Act
