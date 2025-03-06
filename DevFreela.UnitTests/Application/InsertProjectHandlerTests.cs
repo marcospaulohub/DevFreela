@@ -18,9 +18,6 @@ namespace DevFreela.UnitTests.Application
             var repository = Substitute.For<IProjectRepository>();
             repository.Add(Arg.Any<Project>()).Returns(Task.FromResult(ID));
 
-            //Dados fixos.
-            //var command = new InsertProjectCommand("Project A", "Descrição do Projeto", 1, 2, 1000);
-            //Utilizando dados fakes.
             var command = FakeDataHelper.CreateFakeInsertProjectCommand();
 
             var handler = new InsertProjectHandler(repository);
@@ -28,8 +25,8 @@ namespace DevFreela.UnitTests.Application
             // Act
             var result = await handler.Handle(command, new CancellationToken());
 
-            // Assert
 
+            // Assert
             //xUnit
             Assert.True(result.IsSuccess);
             //FluentAssertions
@@ -57,10 +54,6 @@ namespace DevFreela.UnitTests.Application
             //opção 2
             var repository = Mock.Of<IProjectRepository>(r => r.Add(It.IsAny<Project>()) == Task.FromResult(ID));
 
-            
-            //Dados fixos.
-            //var command = new InsertProjectCommand("Project A", "Descrição do Projeto", 1, 2, 1000);
-            //Utilizando dados fakes.
             var command = FakeDataHelper.CreateFakeInsertProjectCommand();
 
             //opção 1
