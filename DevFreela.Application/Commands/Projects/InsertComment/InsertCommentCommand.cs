@@ -5,6 +5,8 @@ namespace DevFreela.Application.Commands.Projects.InsertComment
 {
     public class InsertCommentCommand : IRequest<ResultViewModel>
     {
+        public InsertCommentCommand() { }
+
         public InsertCommentCommand(string content, int idProject, int idUser)
         {
             Content = content;
