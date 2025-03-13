@@ -4,6 +4,7 @@ using DevFreela.Core.Entities;
 using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Auth;
 using DevFreela.UnitTests.Fakes;
+using DevFreela.Core.Messages.UserMessages;
 
 namespace DevFreela.UnitTests.Application
 {
@@ -54,7 +55,7 @@ namespace DevFreela.UnitTests.Application
 
             // Assert
             Assert.False(result.IsSuccess);
-            Assert.Equal("Usuário já existe.", result.Message);
+            Assert.Equal(result.Message, UserMsgs.GetUserExist());
         }
     }
 }
