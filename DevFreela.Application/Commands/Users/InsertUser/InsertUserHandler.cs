@@ -20,13 +20,20 @@ namespace DevFreela.Application.Commands.Users.InsertUser
 
         public async Task<ResultViewModel<int>> Handle(InsertUserCommand request, CancellationToken cancellationToken)
         {
+            var user = await _repository.GetByEmail(request.Email);
+
+            if(user != null)
+            {
+                return ResultViewModel<int>.Error("Usuário já existe.");
+            }
+
             var hash = _authService.ComputeHash(request.Password);
 
-            var user = request.ToEntity(hash);
+            user = request.ToEntity(hash);
 
-            await _repository.Add(user);
+            var userId = await _repository.Add(user);
 
-            return ResultViewModel<int>.Success(user.Id);
+            return ResultViewModel<int>.Success(userId);
         }
     }
 }
