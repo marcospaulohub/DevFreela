@@ -4,6 +4,7 @@ using MediatR;
 using DevFreela.Application.Models;
 using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Auth;
+using DevFreela.Core.Messages.UserMessages;
 
 namespace DevFreela.Application.Commands.Users.InsertUser
 {
@@ -24,7 +25,7 @@ namespace DevFreela.Application.Commands.Users.InsertUser
 
             if(user != null)
             {
-                return ResultViewModel<int>.Error("Usuário já existe.");
+                return ResultViewModel<int>.Error(UserMsgs.GetUserExist());
             }
 
             var hash = _authService.ComputeHash(request.Password);
