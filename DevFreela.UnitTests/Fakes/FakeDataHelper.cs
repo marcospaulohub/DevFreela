@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using DevFreela.Application.Commands.Projects.InsertComment;
 using DevFreela.Application.Commands.Projects.InsertProject;
+using DevFreela.Application.Commands.Users.InsertUser;
 using DevFreela.Core.Entities;
 
 namespace DevFreela.UnitTests.Fakes
@@ -17,12 +18,24 @@ namespace DevFreela.UnitTests.Fakes
             .RuleFor(c => c.TotalCost, f => f.Random.Decimal(1000, 10000));
         #endregion
 
-        public static InsertCommentCommand CreateFakeInsertCommentCommand() => _InsertCommentCommandFaker.Generate();
-        #region _InsertCommentCommandFaker
-        private static readonly Faker<InsertCommentCommand> _InsertCommentCommandFaker = new Faker<InsertCommentCommand>()
+        public static InsertCommentCommand CreateFakeInsertCommentCommand() => _insertCommentCommandFaker.Generate();
+        #region _insertCommentCommandFaker
+        private static readonly Faker<InsertCommentCommand> _insertCommentCommandFaker = new Faker<InsertCommentCommand>()
             .RuleFor(c => c.Content, f => f.Commerce.ProductName())
             .RuleFor(c => c.IdProject, f => f.Random.Int(2, 100))
             .RuleFor(c => c.IdUser, f => f.Random.Int(3, 100));
+        #endregion
+
+        public static InsertUserCommand CreateFakerInsertClientUserCommand() => _insertUserClientCommandFaker.Generate();
+
+        #region _insertUserClientCommandFaker
+        private static readonly Faker<InsertUserCommand> _insertUserClientCommandFaker = new Faker<InsertUserCommand>()
+            .RuleFor(u => u.FullName, f => f.Name.FullName())
+            .RuleFor(u => u.Email, f => f.Internet.Email())
+            .RuleFor(u => u.BirthDate, DateTime.Now.AddYears(-20))
+            .RuleFor(u => u.Password, f => f.Internet.Password(10))
+            .RuleFor(u => u.Role, "client");
+
         #endregion
 
         public static User CreateFakeUserClient() => _userFakerClient.Generate();
