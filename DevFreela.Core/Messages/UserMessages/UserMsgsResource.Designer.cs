@@ -79,6 +79,15 @@ namespace DevFreela.Core.Messages.UserMessages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Erro na alteração da senha..
+        /// </summary>
+        internal static string UserChangePasswordError {
+            get {
+                return ResourceManager.GetString("UserChangePasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail inválido..
         /// </summary>
         internal static string UserEmailInvalid {
@@ -106,6 +115,15 @@ namespace DevFreela.Core.Messages.UserMessages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário já existe..
+        /// </summary>
+        internal static string UserExist {
+            get {
+                return ResourceManager.GetString("UserExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Nome Completo deve ter no máximo 200 caracteres..
         /// </summary>
         internal static string UserFullnameMaxLength {
@@ -129,6 +147,78 @@ namespace DevFreela.Core.Messages.UserMessages {
         internal static string UserNotExist {
             get {
                 return ResourceManager.GetString("UserNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha deve ter no máximo 20 caracteres..
+        /// </summary>
+        internal static string UserPasswordMaxLength {
+            get {
+                return ResourceManager.GetString("UserPasswordMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha do Usuário não pode ser vazio..
+        /// </summary>
+        internal static string UserPasswordNotEmpty {
+            get {
+                return ResourceManager.GetString("UserPasswordNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Erro ao solicitar recuperação de senha..
+        /// </summary>
+        internal static string UserRequestPasswordRecoveryError {
+            get {
+                return ResourceManager.GetString("UserRequestPasswordRecoveryError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Seu código de recuperação é: .
+        /// </summary>
+        internal static string UserRequestPasswordRecoveryMessage {
+            get {
+                return ResourceManager.GetString("UserRequestPasswordRecoveryMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Código de Recuperação.
+        /// </summary>
+        internal static string UserRequestPasswordRecoverySubject {
+            get {
+                return ResourceManager.GetString("UserRequestPasswordRecoverySubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Permissão deve ter no máximo 20 caracteres..
+        /// </summary>
+        internal static string UserRoleMaxLength {
+            get {
+                return ResourceManager.GetString("UserRoleMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Permissão do Usuário não pode ser vazio..
+        /// </summary>
+        internal static string UserRoleNotEmpty {
+            get {
+                return ResourceManager.GetString("UserRoleNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Código Invalido..
+        /// </summary>
+        internal static string UserValidateRecoveryCodeError {
+            get {
+                return ResourceManager.GetString("UserValidateRecoveryCodeError", resourceCulture);
             }
         }
     }

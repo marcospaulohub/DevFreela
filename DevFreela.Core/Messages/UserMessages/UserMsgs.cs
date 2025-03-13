@@ -36,6 +36,10 @@
         {
             return BaseMsgs.GetResource("UserNotExist", fileNameResx);
         }
+        public static string GetUserExist()
+        {
+            return BaseMsgs.GetResource("UserExist", fileNameResx);
+        }
         public static string GetPasswordNotEmpty()
         {
             return BaseMsgs.GetResource("UserPasswordNotEmpty", fileNameResx);

@@ -168,4 +168,7 @@
   <data name="UserChangePasswordError" xml:space="preserve">
     <value>Erro na alteração da senha.</value>
   </data>
+  <data name="UserExist" xml:space="preserve">
+    <value>Usuário já existe.</value>
+  </data>
 </root>
