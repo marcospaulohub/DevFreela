@@ -5,20 +5,12 @@ using System.Linq;
 
 namespace DevFreela.Application.Models
 {
-    public class UserViewModel
+    public class UserViewModel(string fullName, string email, DateTime birthDate, List<UserSkill> userSkill)
     {
-        public UserViewModel(string fullName, string email, DateTime birthDate, List<UserSkill> userSkill)
-        {
-            FullName = fullName;
-            Email = email;
-            BirthDate = birthDate;
-            Skills = userSkill.Select(u => u.Skill.Description).ToList();
-        }
-
-        public string FullName { get; private set; }
-        public string Email { get; private set; }
-        public DateTime BirthDate { get; private set; }
-        public List<string> Skills { get; private set; }
+        public string FullName { get; private set; } = fullName;
+        public string Email { get; private set; } = email;
+        public DateTime BirthDate { get; private set; } = birthDate;
+        public List<string> Skills { get; private set; } = userSkill.Select(u => u.Skill.Description).ToList();
 
 
         public static UserViewModel FromEntity(User entity)

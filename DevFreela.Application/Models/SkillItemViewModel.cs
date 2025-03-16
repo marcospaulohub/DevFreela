@@ -2,14 +2,9 @@
 
 namespace DevFreela.Application.Models
 {
-    public class SkillItemViewModel
+    public class SkillItemViewModel(string description)
     {
-        public SkillItemViewModel(string description)
-        {
-            Description = description;
-        }
-
-        public string Description { get; set; }
+        public string Description { get; set; } = description;
 
         public static SkillItemViewModel FromEntity(Skill entity)
             => new(entity.Description);

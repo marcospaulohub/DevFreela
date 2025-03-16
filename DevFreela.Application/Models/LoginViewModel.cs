@@ -1,13 +1,8 @@
 ﻿namespace DevFreela.Application.Models
 {
-    public class LoginViewModel
+    public class LoginViewModel(string token)
     {
-        public LoginViewModel(string token)
-        {
-            Token = token;
-        }
-
-        public string Token { get; set; }
+        public string Token { get; set; } = token;
 
         public static LoginViewModel FromEntity(string token)
             => new(token);

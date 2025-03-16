@@ -4,31 +4,17 @@ using System.Linq;
 
 namespace DevFreela.Application.Models
 {
-    public class ProjectViewModel
+    public class ProjectViewModel(int id, string title, string description, int idClient, int idFreelancer, string clientName, string freelancerName, decimal totalCost, List<ProjectComment> comments)
     {
-        public ProjectViewModel(int id, string title, string description, int idClient, int idFreelancer, string clientName, string freelancerName, decimal totalCost, List<ProjectComment> comments)
-        {
-            Id = id;
-            Title = title;
-            Description = description;
-            IdClient = idClient;
-            IdFreelancer = idFreelancer;
-            ClientName = clientName;
-            FreelancerName = freelancerName;
-            TotalCost = totalCost;
-
-            Comments = comments.Select(c => c.Content).ToList();
-        }
-
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public int IdClient { get; set; }
-        public int IdFreelancer { get; set; }
-        public string ClientName { get; set; }
-        public string FreelancerName { get; set; }
-        public decimal TotalCost { get; set; }
-        public List<string> Comments { get; set; }
+        public int Id { get; set; } = id;
+        public string Title { get; set; } = title;
+        public string Description { get; set; } = description;
+        public int IdClient { get; set; } = idClient;
+        public int IdFreelancer { get; set; } = idFreelancer;
+        public string ClientName { get; set; } = clientName;
+        public string FreelancerName { get; set; } = freelancerName;
+        public decimal TotalCost { get; set; } = totalCost;
+        public List<string> Comments { get; set; } = comments.Select(c => c.Content).ToList();
 
         public static ProjectViewModel FromEntity(Project entity)
             => new(
